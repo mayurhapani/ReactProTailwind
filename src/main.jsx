@@ -4,6 +4,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+// for project 9
+import store from "./PR9/Pr9Store.jsx";
+import { Provider } from "react-redux";
+
 import MainHeader from "./component/MainHeader.jsx";
 import PR1 from "./PR1/PR1.jsx";
 import PR2A from "./PR2/PR2A.jsx";
@@ -49,7 +53,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="edit" />
           <Route path="edit/:index" />
         </Route>
-        <Route path="/pr9" element={<PR9 />} />
+        <Provider store={store}>
+          <Route path="/pr9" element={<PR9 />} />
+        </Provider>
         <Route path="/tictoktek" element={<TICTOKTEK />} />
       </Routes>
     </BrowserRouter>
